@@ -10,17 +10,18 @@ if __name__ == '__main__':
     new_ex.color = 'black'
     new_ex.circle = 21
 
-    # получение атрибута
-    print(getattr(new_ex, 'hui', 'net takogo atributa'))
-    print(hasattr(new_ex, 'color'))
+    print(getattr(new_ex, 'hui', 'net takogo atributa'))  # возвращает значение атрибута
+    print(hasattr(new_ex, 'color'))  # проверяет наличие атрибута
 
     # присвоение нового атрибута
     setattr(new_ex, 'name', 'Big circle')
     setattr(new_ex, 'coordinates', (3, 6))
+    new_ex.length = 26  # локальное свойство для объекта new_ex
 
     # удаление атрибута
     delattr(new_ex, 'coordinates')
-    del new_ex.name
+    del new_ex.name  # удаляет атрибут в текущем пространстве имен
     print(hasattr(new_ex, 'name'))
 
-print('атрибуты: ', [val for val in new_ex.__dict__])
+    # атрибуты у конкретного экземпляра класса
+    print('атрибуты: ', [val for val in new_ex.__dict__])
