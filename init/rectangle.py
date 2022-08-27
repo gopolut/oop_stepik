@@ -33,6 +33,7 @@ if __name__ == '__main__':
 
     # ПРИМЕР:
     # figure = choice([Line, Rect, Ellipse])
+
     # coords = [0, 0, 0, 0] if figure is Line else [randint(0, 100) for _ in range(4)]
     # elements.append(figure(*coords))
 

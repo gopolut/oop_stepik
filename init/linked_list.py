@@ -2,6 +2,7 @@
 # Односвязный список
 
 class ListObject:
+    # next_obj = None  # можно объявлять здесь
     def __init__(self, data):
         self.data = data
         self.next_obj = None
