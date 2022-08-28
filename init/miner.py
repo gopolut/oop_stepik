@@ -5,11 +5,12 @@ from random import randint
 
 
 class Cell:
-    def __init__(self, around_mines:int=0, mine:bool=0):
+    def __init__(self, around_mines: int=0, mine: bool=0):
         self.around_mines = around_mines  # число мин вокруг данной клетки поля
         self.mine = mine  # наличие мины в текущей клетке
         self.fl_open = True  # открыта/закрыта клетка - булево значение,
                              # если True, то будут отображены клетки при выводе в функции show()
+
 
 class GamePole:
     pole = []  # двумерный список N x N элементов
@@ -17,6 +18,7 @@ class GamePole:
     def __init__(self, N, M):
         self.N = N  # размер поля
         self.M = M  # общее число мин на поле
+
         # TODO: формирование двумерных списков:
         #  [[3 for num in range(self.N)] for num in range(self.N)]
         # формируем поле
@@ -100,16 +102,13 @@ class GamePole:
         # for row in self.pole:
         #     print(' '.join(['#' if not elem.mine else str('1') for elem in row]))
         #     print(' '.join([str(elem.fl_open) if isinstance(elem, Cell) else elem for elem in row]))
-        # print('-------------------')
-        # for row in self.pole:
-        #     print(' '.join(['#' if not elem.around_mines else str(elem.around_mines) for elem in row]))
 
         # с помощью end=' '
         # print(cll.around_mines if cll.fl_open else "#", end=' ')
         # print('-------------------')
-        for row in self.pole:
-            print(' '.join(['#' if not elem.fl_open else str(elem.around_mines) if not elem.mine else '*' for elem in row]))
-        print('-- то же самое с lambda --')
+        # for row in self.pole:
+        #     print(' '.join(['#' if not elem.fl_open else str(elem.around_mines) if not elem.mine else '*' for elem in row]))
+        # print('-- то же самое с lambda --')
         for row in self.pole:
             print(*map(lambda x: '#' if not x.fl_open else x.around_mines if not x.mine else '*', row))
 
@@ -118,4 +117,12 @@ if __name__ == '__main__':
     N = 5
     M = 6
     pole_game = GamePole(N, M)
-    pole_game.show()
+    pole_game2 = GamePole(3, 4)
+
+    print(id(pole_game))
+    print(id(pole_game2))
+
+    # pole_game.show()
+    # print('----------------')
+    # pole_game2.show()
+
